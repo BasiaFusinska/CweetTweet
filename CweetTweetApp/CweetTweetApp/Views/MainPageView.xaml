@@ -1,0 +1,47 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="CweetTweetApp.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro" 
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.Row="0" Text="Cweet Tweet" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+
+        <phone:Pivot x:Name="Items" Grid.Row="1">
+        </phone:Pivot>
+
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar
+            IsVisible="True" 
+            IsMenuEnabled="True">
+            <shell:ApplicationBar.Buttons>
+                <cal:AppBarButton 
+                                  Click="AppBarButton_Click"
+                                  IconUri="/Assets/Search.png"
+                                  Text="Load Tweets" Message="LoadTweets"/>
+                <cal:AppBarButton 
+                                  Click="AppBarButton_Click"
+                                  IconUri="/Assets/Save.png"
+                                  Text="Save" Message="SaveSelected"/>
+            </shell:ApplicationBar.Buttons>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>
